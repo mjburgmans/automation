@@ -7,7 +7,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    container:
+      image: markburgmans/react-app:development
+      env:
+        dockerhub_user: markburgmans
+        dockerhub_pass: 
+        dockerhub_mail: mjburgmans@gmail.com
     steps:
     - uses: actions/checkout@v2
     - name: install NodeJS
