@@ -12,7 +12,7 @@ jobs:
       env:
         DOCKERHUB_USER: ${{ secrets.dockerhub_user }} 
         DOCKERHUB_PASS: ${{ secrets.dockerhub_pass }}
-        DOCKERHUB_EMAIL: ${ secrets.dockerhub_mail }}
+        DOCKERHUB_EMAIL: ${{ secrets.dockerhub_mail }}
     steps:
     - uses: actions/checkout@v2
     - name: install NodeJS
