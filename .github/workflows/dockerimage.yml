@@ -21,4 +21,6 @@ jobs:
       run: npx create-react-app react-app
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag reactapp2:production
+    - name: publish docker image to docker hub
+      run: docker tag react-app:development markburgmans/react-app:development && docker push markburgmans/react-app:development
     
