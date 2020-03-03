@@ -15,5 +15,5 @@ jobs:
     - name: create react app 
       run: npx create-react-app react-app
     - name: Build the Docker image
-      run: docker build . --file Dockerfile-prod --tag reactapp2:production
+      run: docker build . --file Dockerfile --tag reactapp2:production
     
