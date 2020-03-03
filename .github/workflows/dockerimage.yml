@@ -10,9 +10,9 @@ jobs:
     container:
       image: markburgmans/react-app:development
       env:
-        DOCKERHUB_USER: ${dockerhub_user} 
-        DOCKERHUB_PASS: ${dockerhub_pass}
-        DOCKERHUB_EMAIL: ${dockerhub_mail}
+        DOCKERHUB_USER: ${{ secrets.dockerhub_user }} 
+        DOCKERHUB_PASS: ${{ secrets.dockerhub_pass }}
+        DOCKERHUB_EMAIL: ${ secrets.dockerhub_mail }}
     steps:
     - uses: actions/checkout@v2
     - name: install NodeJS
