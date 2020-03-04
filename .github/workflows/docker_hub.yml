@@ -47,8 +47,8 @@ jobs:
         with:
           args: --docker
         env:
-          USERNAME: ${{ secrets.docker_username }}
-          PASSWORD: ${{ secrets.docker_password }}
+          USERNAME: ${{ secrets.dockerhub_user }}
+          PASSWORD: ${{ secrets.dockerhub_pass }}
           IMAGE_NAME: "markburgmans/reactor-app-github"
           TAG_NAME: "v0.0.1"
           LATEST: "true"
