@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: install NodeJS
+      run: curl -sL https://deb.nodesource.com/setup_12.x && sudo -E bash - && sudo apt-get install -y nodejs 
+    - name: login to docker
+      uses: azure/docker-login@v1
     - name: login credentials to docker
       env:
         DOCKERHUB_USER: ${{ secrets.dockerhub_user }} 
-        DOCKERHUB_PASS: ${{ secrets.dockerhub_pass }
-    - name: install NodeJS
-      run: curl -sL https://deb.nodesource.com/setup_12.x && sudo -E bash - && sudo apt-get install -y nodejs 
-    - name: Docker login 
-      uses: azure/docker-login@v1
+        DOCKERHUB_PASS: ${{ secrets.dockerhub_pass }}
       with:
         login-server: markburgmans.docker.io
         username: ${{ DOCKERHUB_USER }}
