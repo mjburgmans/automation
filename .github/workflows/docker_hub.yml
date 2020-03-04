@@ -35,6 +35,7 @@ jobs:
             docker build . --file Dockerfile
           fi
   docker:
+    needs: [build, test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
