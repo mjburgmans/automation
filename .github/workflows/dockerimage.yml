@@ -7,12 +7,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container:
-      image: markburgmans/react-app:development
+    steps:
+    - name: login credentials to docker
       env:
         DOCKERHUB_USER: ${{ secrets.dockerhub_user }} 
         DOCKERHUB_PASS: ${{ secrets.dockerhub_pass }}
-    steps:
     - uses: actions/checkout@v2
     - name: install NodeJS
       run: curl -sL https://deb.nodesource.com/setup_12.x && sudo -E bash - && sudo apt-get install -y nodejs 
