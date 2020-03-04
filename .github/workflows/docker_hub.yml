@@ -8,13 +8,6 @@ on:
       - master
     tags:
       - v*
-
-  # Run tests for any PRs.
-  pull_request:
-
-env:
-  IMAGE_NAME: react-app:development
-
 jobs:
 
   build:
@@ -56,6 +49,6 @@ jobs:
         env:
           USERNAME: ${{ secrets.docker_username }}
           PASSWORD: ${{ secrets.docker_password }}
-          IMAGE_NAME: "USERNAME/IMAGE_NAME"
+          IMAGE_NAME: "markburgmans/reactor-app-github"
           TAG_NAME: "v0.0.1"
           LATEST: "true"
