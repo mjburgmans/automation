@@ -26,6 +26,7 @@ jobs:
       run: npx create-react-app react-app
   # Run tests.
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
