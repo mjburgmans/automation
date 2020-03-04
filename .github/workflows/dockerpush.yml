@@ -18,6 +18,16 @@ env:
   IMAGE_NAME: react-app:development
 
 jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install NodeJS
+      run: curl -sL https://deb.nodesource.com/setup_12.x && sudo -E bash - && sudo apt-get install -y nodejs 
+    - name: create react app
+      run: npx create-react-app react-app
   # Run tests.
   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
   test:
