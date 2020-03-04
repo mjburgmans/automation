@@ -1,0 +1,24 @@
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile-prod --tag reactapp2:production
+
+    - uses: azure/docker-login@v1
+    - name: publish docker image to docker hub
+      env:
+        DOCKERHUB_USER: ${{ secrets.dockerhub_user }} 
+        DOCKERHUB_PASS: ${{ secrets.dockerhub_pass }}
+      with:
+        login-server: markburgmans.docker.io
+        username: ${{ DOCKERHUB_USER }}
+        password: ${{ DOCKERHUB_PASS }}
+        
+    - run: docker tag react-app:development markburgmans/react-app:development && docker push markburgmans/react-app:development
