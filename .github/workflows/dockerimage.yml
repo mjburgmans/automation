@@ -10,9 +10,8 @@ jobs:
     container:
       image: markburgmans/react-app:development
       env:
-        DOCKERHUB_USER: ${{ secrets.dockerhub_user }} 
-        DOCKERHUB_PASS: ${{ secrets.dockerhub_pass }}
-        DOCKERHUB_EMAIL: ${{ secrets.dockerhub_email }}
+        DOCKERHUB_USER: ${{ dockerhub_user }} 
+        DOCKERHUB_PASS: ${{ dockerhub_pass }}
     steps:
     - uses: actions/checkout@v2
     - name: install NodeJS
@@ -21,8 +20,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: markburgmans.docker.io
-        username: ${{ secrets.dockerhub_user }}
-        password: ${{ secrets.dockerhub_pass }}
+        username: ${{ dockerhub_user }}
+        password: ${{ dockerhub_pass }}
     - name: create react app
       run: npx create-react-app react-app
     - name: Build the Docker image
