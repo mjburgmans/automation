@@ -6,8 +6,8 @@ WORKDIR /react-app
 ENV PATH /react-app/node_modules/.bin:$PATH
 
 #copies code file from repo to the filesystem
-COPY package.json /react-app/package.json
-COPY index.html /react-app/index.html
+COPY package.json ./package.json
+COPY index.html ./index.html
 RUN npm install --silent
 RUN npm install react-scripts --silent
 
